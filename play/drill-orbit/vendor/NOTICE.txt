@@ -1,0 +1,6 @@
+Playgama Bridge 2.4.0, Copyright Playgama and contributors.
+Distributed unmodified as a separate replaceable JavaScript library under LGPL-3.0-or-later.
+Matching source and build instructions: playgama-bridge-source-2.4.0.zip (included).
+Upstream source: https://github.com/Playgama/bridge/tree/v2.4.0
+License: PLAYGAMA-LICENSE.txt. GPL terms incorporated by that license: GPL-3.0.txt.
+The game does not prevent replacement or debugging of this library.

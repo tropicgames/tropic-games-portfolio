@@ -1,0 +1,11 @@
+{
+  "leaderboards": [
+    {
+      "id": "best_cast",
+      "isMain": true
+    },
+    {
+      "id": "fish_found"
+    }
+  ]
+}

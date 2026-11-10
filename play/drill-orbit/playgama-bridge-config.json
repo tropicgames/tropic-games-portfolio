@@ -1,0 +1,65 @@
+{
+  "advertisement": {
+    "banner": {
+      "placementFallback": "start_screen",
+      "placements": [
+        {
+          "id": "start_screen"
+        }
+      ]
+    },
+    "interstitial": {
+      "placements": [
+        {
+          "id": "run_complete"
+        }
+      ]
+    },
+    "rewarded": {
+      "placements": [
+        {
+          "id": "golden_drill"
+        },
+        {
+          "id": "wheel_100x"
+        },
+        {
+          "id": "free_upgrade_dist"
+        },
+        {
+          "id": "free_upgrade_power"
+        },
+        {
+          "id": "free_upgrade_dur"
+        },
+        {
+          "id": "idle_double"
+        }
+      ]
+    }
+  },
+  "saas": {
+    "publicToken": "cmvzj8j1u05jmlf0h4ol9q219",
+    "leaderboards": {
+      "platforms": [
+        "playgama",
+        "qa_tool"
+      ]
+    }
+  },
+  "leaderboards": [
+    {
+      "id": "depth",
+      "isMain": true
+    },
+    {
+      "id": "coins"
+    },
+    {
+      "id": "rare"
+    },
+    {
+      "id": "flight"
+    }
+  ]
+}

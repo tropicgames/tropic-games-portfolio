@@ -1,0 +1,12 @@
+Drill Orbit 1.3.8
+Sound effects: Mixkit, Sound Effects Free License.
+https://mixkit.co/license/#sfxFree
+Rock debris, shovel impacts, electrical drill, coin clinks, rocket/air whooshes,
+interface clicks, glass and reward cues. Effects edited, mixed and encoded to MP3.
+See audio/v3/SOURCES.json and Mixkit-LICENSE.txt for individual source identifiers.
+Music: Sherwood by Chris Murphy (zesona), CC0.
+https://opengameart.org/content/sherwood
+Font: Fredoka, SIL Open Font License. See fonts/OFL.txt.
+Playgama Bridge 2.4.0: https://bridge.playgama.com/v2/stable/playgama-bridge.js
+
+User-selected recordings: Mixkit Select Click (1109) for meter/boost and Magical Coin Win (1936) for coin collection and rare finds.

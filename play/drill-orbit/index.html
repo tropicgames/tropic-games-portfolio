@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <script src="vendor/playgama-bridge.js"></script>
+  <script>window.drillBridgeReady = bridge.initialize(); window.drillBridgeReady.catch(function () {});</script>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover">
+  <meta name="theme-color" content="#2f9dff">
+  <title>DRILL ORBIT</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <div id="app">
+    <canvas id="game"></canvas>
+    <div id="loading" role="status">Loading Drill Orbit…</div>
+
+    <!-- TOP BAR -->
+    <header id="topbar">
+      <div class="tb-left">
+        <button id="btnSettings" class="icon-btn" aria-label="Settings">
+          <svg viewBox="0 0 24 24"><path fill="currentColor" d="M19.4 13a7.6 7.6 0 0 0 0-2l2.1-1.6-2-3.5-2.5 1a7.4 7.4 0 0 0-1.7-1L15 3.2h-4l-.4 2.7a7.4 7.4 0 0 0-1.7 1l-2.5-1-2 3.5L6.6 11a7.6 7.6 0 0 0 0 2l-2.1 1.6 2 3.5 2.5-1c.5.4 1.1.7 1.7 1l.4 2.7h4l.4-2.7c.6-.3 1.2-.6 1.7-1l2.5 1 2-3.5zM13 15.5a3.5 3.5 0 1 1 0-7 3.5 3.5 0 0 1 0 7z" transform="translate(-1 0)"/></svg>
+        </button>
+        <div id="coinPill" class="pill coin-pill"><i class="coin"></i><span id="coinVal">0</span></div>
+      </div>
+      <div class="tb-right">
+        <div id="bestPill" class="pill best-pill"><svg viewBox="0 0 24 24" class="crown"><path fill="#ffcc33" d="M3 18h18l-1.5-10-5 4L12 5 9.5 12l-5-4z"/></svg><span><span id="worldName" class="wname">EARTH</span> BEST <b id="bestVal">0 m</b></span></div>
+        <button id="btnWorlds" class="icon-btn planet" aria-label="Worlds">
+          <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="6.5" fill="currentColor"/><ellipse cx="12" cy="12" rx="11" ry="3.6" fill="none" stroke="currentColor" stroke-width="2" transform="rotate(-20 12 12)"/></svg>
+          <i id="worldBadge" class="badge hidden">!</i>
+        </button>
+        <button id="btnLb" class="icon-btn trophy" aria-label="Leaderboard">
+          <svg viewBox="0 0 24 24"><path fill="currentColor" d="M7 3h10v2h3v3a4 4 0 0 1-4 4h-.3A5 5 0 0 1 13 14.9V17h3v3H8v-3h3v-2.1A5 5 0 0 1 8.3 12H8a4 4 0 0 1-4-4V5h3zm-1 4v1a2 2 0 0 0 1.4 1.9A6 6 0 0 1 7 8V7zm11 0v1a6 6 0 0 1-.4 1.9A2 2 0 0 0 18 8V7z"/></svg>
+        </button>
+      </div>
+    </header>
+
+
+    <!-- SIDE PANEL (idle) -->
+    <aside id="side">
+      <div id="eventCard" class="side-card event-card">
+        <div class="sc-head"><span class="sc-tag">EVENT</span><span id="evTimer" class="sc-timer"></span></div>
+        <div id="evName" class="sc-title">—</div>
+        <div id="evDesc" class="sc-sub"></div>
+      </div>
+      <div id="msCard" class="side-card ms-card">
+        <div class="sc-head"><span class="sc-tag green">NEXT GOAL</span></div>
+        <div id="msName" class="sc-title">25 m</div>
+        <div id="msReward" class="sc-sub"></div>
+        <div class="bar"><i id="msBar"></i></div>
+      </div>
+      <button id="btnCollection" class="side-card coll-card">
+        <span class="sc-tag purple">COLLECTION</span>
+        <span id="collPct" class="sc-title">0%</span>
+        <span class="sc-sub">Fossils · Artifacts · Treasures</span>
+      </button>
+      <button id="btnGolden" class="golden-btn"><span class="gb-ic" aria-hidden="true"><svg viewBox="0 0 24 24" width="26" height="26"><path fill="#fff3a0" stroke="#a35f00" d="m12 1 3 7 8 1-6 5 2 8-7-4-7 4 2-8-6-5 8-1z"/></svg></span><span class="gb-txt"><b>GOLDEN DRILL</b><small>3× coins next run</small></span><span class="ad-chip">▶ AD</span></button>
+    </aside>
+
+    <!-- UPGRADES -->
+    <nav id="upgrades"></nav>
+
+    <!-- FLIGHT HUD -->
+    <div id="flightHud">
+      <div id="flDist" class="big-num">0 m</div>
+      <div id="flRegion" class="sub-chip"></div>
+    </div>
+
+    <!-- MINING HUD -->
+    <div id="mineHud">
+      <div class="mh-top">
+        <div id="mhDepth" class="big-num">0 m</div>
+        <div id="mhRecord" class="mh-record"></div>
+        <div class="dur-wrap">
+          <div class="dur-label"><span>DURABILITY</span><b id="mhDurTxt">8.0s</b></div>
+          <div class="dur-bar"><i id="mhDur"></i></div>
+        </div>
+      </div>
+      <div class="mh-left">
+        <div id="mhZone" class="zone-chip">Dirt Depths</div>
+        <div class="mh-goal">
+          <div class="mh-goal-txt"><span>NEXT</span><b id="mhGoal">25 m</b></div>
+          <div class="bar"><i id="mhGoalBar"></i></div>
+        </div>
+        <div id="mhEvent" class="mh-event"></div>
+      </div>
+      <div class="mh-right">
+        <div class="run-coins"><i class="coin"></i><span id="mhCoins">0</span></div>
+        <div id="mhLoot" class="loot"></div>
+      </div>
+    </div>
+
+    <!-- action buttons (bottom center): rocket boost in the air, dynamite in the mine -->
+    <button id="flBoost" class="action-btn boost"><span class="ab-ic" aria-hidden="true"><svg viewBox="0 0 24 24" width="36" height="36"><path fill="white" d="M13 2 5 13h6l-1 9 9-13h-6z"/></svg></span><span class="ab-txt"><small>TAP TO</small>BOOST</span><span id="flBoostN" class="ab-pips"><i class="on"></i><i class="on"></i></span></button>
+    <div id="ffChip" class="ff-chip"><span class="ff-ic">⏩</span><span id="ffTxt"><b>HOLD</b> screen for 2× speed</span></div>
+    <button id="mineBlast" class="action-btn blast"><span class="ab-ic" aria-hidden="true"><svg viewBox="0 0 24 24" width="36" height="36"><path fill="#fff3a0" d="m12 0 2 7 7-4-4 7 7 2-7 2 4 7-7-4-2 7-2-7-7 4 4-7-7-2 7-2-4-7 7 4z"/></svg></span><span class="ab-txt"><small>TAP TO</small>BLAST</span><span id="mineBlastN" class="ab-pips"><i class="on"></i><i class="on"></i></span></button>
+
+    <div id="banners"></div>
+    <div id="callouts"></div>
+    <div id="center-msg"></div>
+    <div id="jackpot" class="hidden"></div>
+    <div id="modals"></div>
+    <div id="fade"></div>
+  </div>
+
+  <script src="js/bootstrap.js"></script>
+</body>
+</html>

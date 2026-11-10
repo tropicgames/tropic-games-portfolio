@@ -1,0 +1,11 @@
+{
+  "leaderboards": [
+    {
+      "id": "eggs_hatched",
+      "isMain": true
+    },
+    {
+      "id": "pets_found"
+    }
+  ]
+}

@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Explore and play eight browser games by Tropic Games. A portfolio for game publishers and distribution partners.">
+<meta name="theme-color" content="#111713">
+<title>Tropic Games — Browser Game Studio</title>
+<link rel="icon" href="tropic-games-logo.webp" type="image/webp">
+<link rel="stylesheet" href="style.css">
+<script src="portfolio.js" defer></script>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="top"><div class="wrap bar">
+  <a class="brand" href="#"><img src="tropic-games-logo.webp" alt="Tropic Games" width="104" height="66"></a>
+  <nav aria-label="Main navigation"><a href="#games">Games</a><a href="#studio">Studio</a><a class="nav-cta" href="#publishing">Publishing <span aria-hidden="true">↗</span></a></nav>
+</div></header>
+<main id="main">
+  <section class="hero wrap" aria-labelledby="headline">
+    <div class="intro">
+      <p class="eyebrow"><span class="dot"></span> INDEPENDENT BROWSER GAME STUDIO</p>
+      <h1 id="headline">Small games.<br><em>Big worlds.</em></h1>
+      <p class="lede">Dig through planets, race across obstacle courses, and build collections full of odd little creatures. Play eight games straight from your browser.</p>
+      <a class="button primary" href="#games">Explore our games <span aria-hidden="true">↓</span></a>
+    </div>
+    <a href="./play/drill-orbit/" class="feature" target="_blank" rel="noopener" aria-label="Play featured game Drill Orbit in a new tab">
+      <span class="feature-cover"><img src="art/drill-orbit.avif" alt="" width="448" height="252" fetchpriority="high"></span>
+      <span class="feature-caption"><span><small><span class="dot"></span> FEATURED GAME &nbsp; · &nbsp; MINING ARCADE</small><strong>Drill Orbit</strong></span><span class="round" aria-hidden="true">↗</span></span>
+    </a>
+  </section>
+  <section id="games" class="catalog wrap" aria-labelledby="catalog-title">
+    <p class="eyebrow section-label"><span>01</span> / THE CATALOG</p>
+    <div class="section-head"><div><h2 id="catalog-title">Our games<span class="accent">.</span></h2><p>Explore the catalog and launch any build in a new tab.</p></div>
+    <div class="filters" role="group" aria-label="Filter games"><button type="button" aria-pressed="true" data-filter="all">All games</button><button type="button" aria-pressed="false" data-filter="arcade">Arcade</button><button type="button" aria-pressed="false" data-filter="obby">Obby</button><button type="button" aria-pressed="false" data-filter="collection">Collection</button></div></div>
+    <p id="game-count" class="sr-only" role="status"></p>
+    <div class="grid" id="game-grid"></div>
+    <noscript><p>Play <a href="./play/drill-orbit/">Drill Orbit</a>, <a href="./play/snow-plow/">Snow Plow!</a>, <a href="./play/bike-escape/">Obby +1 Bike Escape</a>, <a href="./play/spider-arms/">Spider Arms Obby Escape</a>, <a href="./play/catch-a-fish/">Catch a Fish</a>, <a href="./play/chop-trees-for-eggs/">Chop Trees for Eggs</a>, <a href="./play/fish-for-brainrots/">Fish for Brainrots</a>, or <a href="./play/throw-foods/">Throw Foods for Pets</a>.</p></noscript>
+  </section>
+  <section id="studio" class="studio wrap" aria-labelledby="studio-title">
+    <p class="eyebrow section-label"><span>02</span> / THE STUDIO</p>
+    <div class="studio-inner"><h2 id="studio-title">Built for<br>the browser<span class="accent">.</span></h2>
+    <div><p class="studio-copy">Tropic Games develops browser games with simple controls and a reason to come back. In our catalog, a single action can grow into a whole game, from clearing your first strip of snow to building a factory.</p>
+    <dl class="facts"><div><dt>08</dt><dd>Playable builds</dd></div><div><dt>03</dt><dd>Game categories</dd></div><div><dt>Web</dt><dd>Browser platform</dd></div></dl></div></div>
+  </section>
+  <section id="publishing" class="wrap publishing" aria-labelledby="publishing-title"><div class="publish-box">
+    <p class="eyebrow"><span class="dot"></span> FOR PUBLISHERS &amp; PORTALS</p>
+    <h2 id="publishing-title">Play the builds.</h2>
+    <p>Each title opens as a standalone browser demo. Several projects include Playgama Bridge integrations for features such as platform saves, rewarded ads, and leaderboards. Availability varies by title and hosting platform.</p>
+    <a class="button primary" href="#games">Browse playable builds <span aria-hidden="true">↑</span></a>
+  </div></section>
+</main>
+<footer class="wrap foot"><a class="brand" href="#"><img src="tropic-games-logo.webp" alt="Tropic Games" width="80" height="50"></a><span>Independent browser game development</span><a href="#main">Back to top ↑</a></footer>
+</body>
+</html>

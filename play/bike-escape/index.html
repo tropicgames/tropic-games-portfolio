@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <script src="./playgama-bridge.js"></script>
+
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover" />
+  <meta name="theme-color" content="#3aa8ee" />
+  <title>Obby +1 Bike Escape</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Cg fill='none' stroke='%232d2433' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'%3E%3Ccircle cx='8' cy='21' r='6'/%3E%3Ccircle cx='24' cy='21' r='6'/%3E%3Cpath d='M8 21 13 11h8l3 10M13 11l4 10'/%3E%3C/g%3E%3Cpath d='M13 11 17 21' stroke='%23ff4b3a' stroke-width='2' stroke-linecap='round'/%3E%3Ctext x='23' y='10' font-size='11' font-weight='900' fill='%23ffd23f' stroke='%232d2433' stroke-width='1' text-anchor='middle'%3E+1%3C/text%3E%3C/svg%3E" />
+  <style>html,body{background:#3aa8ee;height:100%;margin:0;overflow:hidden}#loading{z-index:100;color:#fff;-webkit-user-select:none;-moz-user-select:none;user-select:none;background:radial-gradient(circle at 80% 15%,#fff7c8 0,#fff7c8 5%,#fff7c880 9%,#0000 22%),linear-gradient(#3aa8ee,#8fd6ff 55%,#d8f4ff 70%);flex-direction:column;justify-content:center;align-items:center;gap:max(8px,min(2vh,16px));font:900 20px Arial Rounded MT Bold,Arial Black,Trebuchet MS,sans-serif;transition:opacity .55s;display:flex;position:fixed;top:0;bottom:0;left:0;right:0;overflow:hidden}#loading.done{opacity:0;pointer-events:none}#loading .hill{background:#6cc94f;border-radius:50% 50% 0 0;position:absolute;bottom:10vh}#loading .h1{width:60vw;height:26vh;left:-10vw}#loading .h2{background:#5fbb4c;width:70vw;height:34vh;right:-14vw}#loading .road{background:#5a5a6a;border-top:7px solid #ff4b3a;height:13vh;position:absolute;bottom:0;left:0;right:0;overflow:hidden}#loading .road:after{content:"";background:repeating-linear-gradient(90deg,#fff6c8 0,#fff6c8 40px,#0000 40px,#0000 80px);height:8px;animation:.35s linear infinite dash;position:absolute;top:45%;left:0;right:-80px}@keyframes dash{to{transform:translate(-80px)}}#loading .stage{z-index:1;flex-direction:column;align-items:center;gap:max(6px,min(1.6vh,14px));margin-top:-6vh;display:flex;position:relative}#loading .scene{filter:drop-shadow(0 8px #14283c40);width:max(190px,min(32vh,320px));height:auto;animation:.5s ease-in-out infinite alternate bob}@keyframes bob{to{transform:translateY(-5px)rotate(-1.5deg)}}#loading .wheel{transform-box:fill-box;transform-origin:50%;animation:.45s linear infinite spin}@keyframes spin{to{transform:rotate(360deg)}}#loading .lines{animation:.5s linear infinite whoosh}@keyframes whoosh{0%{opacity:0;transform:translate(16px)}50%{opacity:1}to{opacity:0;transform:translate(-26px)}}#loading h1{text-align:center;letter-spacing:1px;color:#ffe14d;-webkit-text-stroke:clamp(6px,1.1vw,10px) #2d2433;paint-order:stroke fill;text-shadow:0 6px #2d2433,0 12px 18px #14102859;margin:0;font-size:max(40px,min(8.5vw,86px));line-height:.92;animation:.9s cubic-bezier(.2,1.6,.4,1) both pop;transform:rotate(-3deg)}#loading h1 span{color:#fff;font-size:.62em;display:block}@keyframes pop{0%{opacity:0;transform:rotate(-3deg)scale(.4)}}#loadTrack{box-sizing:border-box;background:#2d2433;border-radius:16px;width:min(78vw,420px);height:26px;padding:4px;box-shadow:0 5px #14102859}#loadBar{background:repeating-linear-gradient(115deg,#ffffff59 0,#ffffff59 10px,#0000 10px,#0000 20px) 0 0/28px 100%,linear-gradient(#ffe14d,#f5ad22) 0 0/100% 100%;border-radius:11px;width:4%;height:100%;transition:width .3s;animation:.6s linear infinite stripes}@keyframes stripes{to{background-position:28px 0,0 0}}#loadText{text-shadow:0 2px #2d2433,0 0 6px #14102866;font-size:max(16px,min(2.4vh,21px))}#loadTip{text-align:center;color:#2d3a4a;background:#ffffffe0;border-radius:12px;max-width:min(86vw,460px);min-height:2.6em;padding:8px 14px;font:700 max(13px,min(2vh,16px)) Trebuchet MS,sans-serif;transition:opacity .3s;box-shadow:0 3px #14283c40}#loadTip b{color:#d8622a}</style>
+  <script type="module" crossorigin src="./assets/index-Cg8diFqK.js"></script>
+</head>
+<body>
+  <canvas id="game"></canvas>
+  <div id="ui"></div>
+  <div id="loading">
+    <i class="hill h1"></i><i class="hill h2"></i><i class="road"></i>
+    <div class="stage">
+      <svg class="scene" viewBox="0 0 220 160" aria-hidden="true">
+        <ellipse cx="112" cy="150" rx="80" ry="7" fill="rgba(20,40,60,.25)"/>
+        <g class="lines" stroke="#fff" stroke-width="5" stroke-linecap="round" opacity=".9"><path d="M8 70h30M2 92h26M14 114h22"/></g>
+        <g fill="none" stroke-linecap="round" stroke-linejoin="round">
+          <g class="wheel"><circle cx="62" cy="118" r="27" stroke="#2d2433" stroke-width="11"/><circle cx="62" cy="118" r="18" stroke="#c9ced6" stroke-width="3"/><path d="M62 100v36M44 118h36" stroke="#c9ced6" stroke-width="2.5"/></g>
+          <g class="wheel"><circle cx="160" cy="118" r="27" stroke="#2d2433" stroke-width="11"/><circle cx="160" cy="118" r="18" stroke="#c9ced6" stroke-width="3"/><path d="M160 100v36M142 118h36" stroke="#c9ced6" stroke-width="2.5"/></g>
+          <path d="M62 118 L98 118 L140 72 L86 72 Z M98 118 L80 56" stroke="#2d2433" stroke-width="12"/>
+          <path d="M62 118 L98 118 L140 72 L86 72 Z M98 118 L80 56" stroke="#3fa9f5" stroke-width="7"/>
+          <path d="M142 62 L160 118" stroke="#2d2433" stroke-width="10"/><path d="M142 62 L160 118" stroke="#ffd23f" stroke-width="5"/>
+          <path d="M132 58 L148 54 L156 60" stroke="#2d2433" stroke-width="7"/>
+          <!-- rider -->
+          <path d="M84 50 L112 28" stroke="#2d2433" stroke-width="20"/><path d="M84 50 L112 28" stroke="#ff8f2c" stroke-width="15"/>
+          <path d="M112 30 L136 46 L148 56" stroke="#2d2433" stroke-width="9"/><path d="M112 30 L136 46 L148 56" stroke="#f5c9a0" stroke-width="5"/>
+          <path d="M84 52 L106 80 L98 116" stroke="#2d2433" stroke-width="11"/><path d="M84 52 L106 80 L98 116" stroke="#3a3f58" stroke-width="7"/>
+        </g>
+        <rect x="70" y="48" width="26" height="8" rx="4" fill="#2d2433"/>
+        <circle cx="98" cy="118" r="7" fill="#ffd23f" stroke="#2d2433" stroke-width="3"/>
+        <rect x="108" y="4" width="26" height="24" rx="7" fill="#f5c9a0" stroke="#2d2433" stroke-width="3"/>
+        <path d="M104 14 a17 15 0 0 1 34 0 z" fill="#ff4b3a" stroke="#2d2433" stroke-width="3"/>
+        <rect x="124" y="16" width="3" height="5" fill="#2d2433"/>
+        <text x="186" y="40" font-size="30" font-weight="900" fill="#ffe14d" stroke="#2d2433" stroke-width="2" text-anchor="middle" font-family="Arial Black, sans-serif">+1</text>
+      </svg>
+      <h1>Obby +1<span>Bike Escape</span></h1>
+      <div id="loadTrack"><div id="loadBar"></div></div>
+      <div id="loadText">Loading...</div>
+      <div id="loadTip"></div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      var tips = [
+        'Every second you pedal gives you <b>+1 Speed</b>.',
+        'More speed means <b>longer jumps</b>. Each stage shows the speed it needs.',
+        'Buy faster <b>bikes</b> to gain more speed every second.',
+        'Hit the <b>blue speed pads</b> for a turbo boost!',
+        '<b>Rebirth</b> to multiply your speed gain and cash forever.',
+        'Ride laps in the lobby to get faster before a big stage.',
+        'Open the <b>gift</b> button for free playtime rewards!'
+      ];
+      var el = document.getElementById('loadTip'), i = Math.floor(Math.random() * tips.length);
+      function show() { el.style.opacity = 0; setTimeout(function () { el.innerHTML = tips[i++ % tips.length]; el.style.opacity = 1; }, 250); }
+      show();
+      var timer = setInterval(function () {
+        if (document.getElementById('loading').classList.contains('done')) { clearInterval(timer); return; }
+        show();
+      }, 3200);
+    })();
+  </script>
+</body>
+</html>

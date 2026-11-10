@@ -1,0 +1,15 @@
+Sound effects sourced from Mixkit under its Sound Effects Free License.
+License: https://mixkit.co/license/#sfxFree
+Verified 2026-11-02. Commercial video game use and modifications are permitted.
+These edited effects are incorporated into Drill Orbit, an interactive game.
+Do not redistribute the recordings separately as stock, templates or source assets;
+do not claim ownership of the recordings or register them with rights-management services.
+Original WAV files are excluded from the game ZIP. SOURCES.json identifies the recordings used.
+Source categories:
+https://mixkit.co/free-sound-effects/rock/
+https://mixkit.co/free-sound-effects/tools/
+https://mixkit.co/free-sound-effects/money/
+https://mixkit.co/free-sound-effects/whoosh/
+https://mixkit.co/free-sound-effects/glass/
+https://mixkit.co/free-sound-effects/click/
+https://mixkit.co/free-sound-effects/win/

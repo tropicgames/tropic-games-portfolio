@@ -1,0 +1,11 @@
+{
+  "leaderboards": [
+    {
+      "id": "best_throw",
+      "isMain": true
+    },
+    {
+      "id": "pets_found"
+    }
+  ]
+}

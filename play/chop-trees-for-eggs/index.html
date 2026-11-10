@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <script src="./playgama-bridge.js"></script>
+
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover" />
+  <meta name="theme-color" content="#4ab8f0" />
+  <title>Chop Trees for Eggs</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Cellipse cx='16' cy='17' rx='10' ry='13' fill='%23fff4d8' stroke='%23c8a060' stroke-width='2'/%3E%3Ccircle cx='12' cy='13' r='2' fill='%2362d66a'/%3E%3Ccircle cx='19' cy='20' r='2.4' fill='%2362d66a'/%3E%3C/svg%3E" />
+  <style>html,body{background:#4ab8f0;height:100%;margin:0;overflow:hidden}#loading{z-index:100;color:#fff;-webkit-user-select:none;-moz-user-select:none;user-select:none;background:radial-gradient(circle at 78% 16%,#fff7c8 0,#fff7c8 5%,#fff7c880 9%,#0000 22%),linear-gradient(#3aa8ee,#8fd6ff 55%,#d8f4ff 72%);flex-direction:column;justify-content:center;align-items:center;gap:max(8px,min(2vh,16px));font:900 20px Arial Rounded MT Bold,Arial Black,Trebuchet MS,sans-serif;transition:opacity .55s;display:flex;position:fixed;top:0;bottom:0;left:0;right:0;overflow:hidden}#loading.done{opacity:0;pointer-events:none}#loading .cloud{opacity:.9;background:#fff;border-radius:40px;height:34px;animation:38s linear infinite drift;position:absolute;box-shadow:24px -14px 0 4px #fff,58px -4px #fff}#loading .c1{width:120px;top:12%;left:-160px}#loading .c2{opacity:.75;width:90px;animation-duration:52s;animation-delay:-20s;top:26%;left:-160px}#loading .c3{opacity:.6;width:70px;animation-duration:44s;animation-delay:-34s;top:7%;left:-160px}@keyframes drift{to{transform:translate(calc(100vw + 320px))}}#loading .hills{height:34vh;min-height:150px;position:absolute;bottom:0;left:0;right:0}#loading .hills svg{width:100%;height:100%;display:block}#loading .stage{z-index:1;flex-direction:column;align-items:center;gap:max(6px,min(1.6vh,14px));margin-top:-6vh;display:flex;position:relative}#loading .scene{filter:drop-shadow(0 8px #143c1e40);width:max(180px,min(34vh,320px));height:auto}#loading .egg{transform-origin:118px 150px;animation:1.6s ease-in-out infinite wobble}#loading .pick{transform-origin:70px 140px;animation:1.1s ease-in-out infinite chop}@keyframes wobble{0%,60%,to{transform:rotate(0)}68%{transform:rotate(-9deg)}76%{transform:rotate(8deg)}84%{transform:rotate(-5deg)}92%{transform:rotate(3deg)}}@keyframes chop{0%,to{transform:rotate(-28deg)}45%{transform:rotate(-34deg)}60%{transform:rotate(14deg)}70%{transform:rotate(8deg)}}#loading h1{text-align:center;letter-spacing:1px;color:#ffe14d;-webkit-text-stroke:clamp(6px,1.1vw,10px) #2d2433;paint-order:stroke fill;text-shadow:0 6px #2d2433,0 12px 18px #14102859;margin:0;font-size:max(40px,min(8.5vw,84px));line-height:.95;animation:.9s cubic-bezier(.2,1.6,.4,1) both pop;transform:rotate(-3deg)}#loading h1 span{color:#fff;font-size:.62em;display:block}@keyframes pop{0%{opacity:0;transform:rotate(-3deg)scale(.4)}}#loadTrack{box-sizing:border-box;background:#2d2433;border-radius:16px;width:min(78vw,420px);height:26px;padding:4px;box-shadow:0 5px #14102859}#loadBar{background:repeating-linear-gradient(115deg,#ffffff59 0,#ffffff59 10px,#0000 10px,#0000 20px) 0 0/28px 100%,linear-gradient(#ffd34d,#ff8f2c) 0 0/100% 100%;border-radius:11px;width:4%;height:100%;transition:width .3s;animation:.6s linear infinite stripes}@keyframes stripes{to{background-position:28px 0,0 0}}#loadText{text-shadow:0 2px #2d2433,0 0 6px #14102866;font-size:max(16px,min(2.4vh,21px))}#loadTip{text-align:center;color:#2d4a1e;background:#ffffffd1;border-radius:12px;max-width:min(86vw,460px);min-height:2.6em;padding:8px 14px;font:700 max(13px,min(2vh,16px)) Trebuchet MS,sans-serif;transition:opacity .3s;box-shadow:0 3px #143c1e40}#loadTip b{color:#d8622a}</style>
+  <script type="module" crossorigin src="./assets/index-CSvnU7c0.js"></script>
+</head>
+<body>
+  <canvas id="game"></canvas>
+  <div id="ui"></div>
+  <div id="loading">
+    <i class="cloud c1"></i><i class="cloud c2"></i><i class="cloud c3"></i>
+    <div class="hills" aria-hidden="true">
+      <svg viewBox="0 0 400 120" preserveAspectRatio="none">
+        <path d="M0 52 C60 20 120 30 180 48 S300 22 400 40 V120 H0Z" fill="#7fd65a"/>
+        <path d="M0 74 C80 50 150 70 220 64 S340 46 400 66 V120 H0Z" fill="#5fbb4c"/>
+        <path d="M0 96 C90 84 180 100 260 92 S360 84 400 92 V120 H0Z" fill="#4aa840"/>
+      </svg>
+    </div>
+    <div class="stage">
+      <svg class="scene" viewBox="0 0 200 180" aria-hidden="true">
+        <ellipse cx="100" cy="170" rx="82" ry="9" fill="rgba(30,70,30,.25)"/>
+        <rect x="34" y="88" width="20" height="78" rx="6" fill="#8a6038"/>
+        <rect x="40" y="96" width="5" height="60" rx="2" fill="#6a4a2c"/>
+        <circle cx="44" cy="62" r="34" fill="#3f9f3a"/><circle cx="20" cy="76" r="20" fill="#4fb548"/><circle cx="68" cy="74" r="22" fill="#58bd4c"/><circle cx="46" cy="38" r="20" fill="#62c454"/>
+        <circle cx="30" cy="54" r="5" fill="#e8352f"/><circle cx="60" cy="48" r="5" fill="#e8352f"/><circle cx="52" cy="80" r="5" fill="#ffcf3f"/>
+        <g class="pick"><rect x="66" y="96" width="9" height="62" rx="4" fill="#8a6038" transform="rotate(20 70 127)"/><path d="M58 98 Q84 82 108 100 L100 106 Q84 94 64 106Z" fill="#c8d0d8" stroke="#5f5f6a" stroke-width="3" transform="rotate(20 70 127)"/></g>
+        <ellipse cx="128" cy="158" rx="40" ry="12" fill="#a8783f"/>
+        <g class="egg"><ellipse cx="128" cy="124" rx="27" ry="35" fill="#fff4d8" stroke="#2d2433" stroke-width="4"/>
+          <circle cx="118" cy="112" r="5" fill="#62d66a"/><circle cx="138" cy="130" r="6.5" fill="#62d66a"/><circle cx="122" cy="140" r="4" fill="#62d66a"/><ellipse cx="117" cy="106" rx="5" ry="9" fill="#fff" opacity=".8"/></g>
+        <path d="M88 156 Q128 176 168 156 L168 160 Q128 184 88 160Z" fill="#8a6038"/>
+        <g stroke="#d9b26a" stroke-width="3" stroke-linecap="round"><path d="M92 150 l-8 -6"/><path d="M164 150 l8 -6"/><path d="M100 160 l-6 4"/><path d="M156 160 l6 4"/></g>
+      </svg>
+      <h1>Chop Trees<span>for Eggs</span></h1>
+      <div id="loadTrack"><div id="loadBar"></div></div>
+      <div id="loadText">Loading...</div>
+      <div id="loadTip"></div>
+    </div>
+  </div>
+  <script>
+    // Rotating tips while the game loads.
+    (function () {
+      var tips = [
+        'Hold <b>Space</b> or tap <b>CHOP</b> next to a tree to chop it down.',
+        'Press <b>E</b> to steal an egg, then run back through the gate!',
+        'Rarer eggs are heavier: you run slower while carrying them.',
+        'Every zone has a <b>guardian</b>. Watch where it walks before you steal.',
+        'Bigger trees take longer to chop but drop luckier eggs.',
+        'Plant eggs in your pen. They keep hatching while you play.',
+        'Run on the <b>treadmill</b> to chop harder.'
+      ];
+      var el = document.getElementById('loadTip'), i = Math.floor(Math.random() * tips.length);
+      function show() { el.style.opacity = 0; setTimeout(function () { el.innerHTML = tips[i++ % tips.length]; el.style.opacity = 1; }, 250); }
+      show();
+      var timer = setInterval(function () {
+        if (document.getElementById('loading').classList.contains('done')) { clearInterval(timer); return; }
+        show();
+      }, 3200);
+    })();
+  </script>
+</body>
+</html>

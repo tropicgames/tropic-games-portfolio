@@ -1,0 +1,14 @@
+{
+  "leaderboards": [
+    {
+      "id": "best_speed",
+      "isMain": true
+    },
+    {
+      "id": "stages_cleared"
+    },
+    {
+      "id": "rebirths"
+    }
+  ]
+}

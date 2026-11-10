@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <script src="./playgama-bridge.js"></script>
+
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover" />
+  <meta name="theme-color" content="#3aa8ee" />
+  <title>+1 Spider Arms Obby Escape</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Cpath d='M10 14 3 6M10 18l-7 4M22 14l7-8M22 18l7 4M12 21l-4 8M20 21l4 8' stroke='%232d2433' stroke-width='3' stroke-linecap='round'/%3E%3Cellipse cx='16' cy='17' rx='8' ry='6' fill='%238a8f98' stroke='%232d2433' stroke-width='2'/%3E%3Ccircle cx='13' cy='17' r='1.6' fill='%2355c8ff'/%3E%3Ccircle cx='19' cy='17' r='1.6' fill='%2355c8ff'/%3E%3C/svg%3E" />
+  <style>html,body{background:#3aa8ee;height:100%;margin:0;overflow:hidden}#loading{z-index:100;color:#fff;-webkit-user-select:none;-moz-user-select:none;user-select:none;background:radial-gradient(circle at 78% 16%,#fff7c8 0,#fff7c8 5%,#fff7c880 9%,#0000 22%),linear-gradient(#3aa8ee,#8fd6ff 55%,#d8f4ff 72%);flex-direction:column;justify-content:center;align-items:center;gap:max(8px,min(2vh,16px));font:900 20px Arial Rounded MT Bold,Arial Black,Trebuchet MS,sans-serif;transition:opacity .55s;display:flex;position:fixed;top:0;bottom:0;left:0;right:0;overflow:hidden}#loading.done{opacity:0;pointer-events:none}#loading .tower{background:#f0a050;border-top:8px solid #f5b868;position:absolute;bottom:0;box-shadow:inset -10px 0 #00000014}#loading .t1{width:14vw;height:46vh;left:6%}#loading .t2{background:#7fa8d8;border-top-color:#9ec8f0;width:12vw;height:58vh;right:8%}#loading .t3{background:#9a68e8;border-top-color:#b77cff;width:8vw;height:24vh;left:30%}#loading .grass{background:#5fbb4c;border-top:6px solid #7fd65a;height:12vh;position:absolute;bottom:0;left:0;right:0}#loading .stage{z-index:1;flex-direction:column;align-items:center;gap:max(6px,min(1.6vh,14px));margin-top:-6vh;display:flex;position:relative}#loading .scene{filter:drop-shadow(0 8px #14283c40);width:max(170px,min(30vh,300px));height:auto;animation:1.2s ease-in-out infinite bob}@keyframes bob{50%{transform:translateY(-8px)}}#loading .leg{transform-origin:100px 92px;animation:.6s ease-in-out infinite alternate walk}#loading .leg.b{animation-delay:-.3s}@keyframes walk{0%{transform:rotate(-6deg)}to{transform:rotate(6deg)}}#loading h1{text-align:center;letter-spacing:1px;color:#ffe14d;-webkit-text-stroke:clamp(6px,1.1vw,10px) #2d2433;paint-order:stroke fill;text-shadow:0 6px #2d2433,0 12px 18px #14102859;margin:0;font-size:max(40px,min(8.5vw,84px));line-height:.95;animation:.9s cubic-bezier(.2,1.6,.4,1) both pop;transform:rotate(-3deg)}#loading h1 span{color:#fff;font-size:.62em;display:block}@keyframes pop{0%{opacity:0;transform:rotate(-3deg)scale(.4)}}#loadTrack{box-sizing:border-box;background:#2d2433;border-radius:16px;width:min(78vw,420px);height:26px;padding:4px;box-shadow:0 5px #14102859}#loadBar{background:repeating-linear-gradient(115deg,#ffffff59 0,#ffffff59 10px,#0000 10px,#0000 20px) 0 0/28px 100%,linear-gradient(#6fd9ff,#3a8ee0) 0 0/100% 100%;border-radius:11px;width:4%;height:100%;transition:width .3s;animation:.6s linear infinite stripes}@keyframes stripes{to{background-position:28px 0,0 0}}#loadText{text-shadow:0 2px #2d2433,0 0 6px #14102866;font-size:max(16px,min(2.4vh,21px))}#loadTip{text-align:center;color:#2d3a4a;background:#ffffffd9;border-radius:12px;max-width:min(86vw,460px);min-height:2.6em;padding:8px 14px;font:700 max(13px,min(2vh,16px)) Trebuchet MS,sans-serif;transition:opacity .3s;box-shadow:0 3px #14283c40}#loadTip b{color:#d8622a}</style>
+  <script type="module" crossorigin src="./assets/index-94loh7ek.js"></script>
+</head>
+<body>
+  <canvas id="game"></canvas>
+  <div id="ui"></div>
+  <div id="loading">
+    <i class="tower t1"></i><i class="tower t2"></i><i class="tower t3"></i><i class="grass"></i>
+    <div class="stage">
+      <svg class="scene" viewBox="0 0 200 160" aria-hidden="true">
+        <ellipse cx="100" cy="150" rx="78" ry="8" fill="rgba(20,40,60,.25)"/>
+        <g stroke-linecap="round" stroke-linejoin="round" fill="none">
+          <g class="leg"><path d="M82 92 L42 46 L22 146" stroke="#2d2433" stroke-width="9"/><path d="M82 92 L42 46 L22 146" stroke="#c9ced6" stroke-width="5" stroke-dasharray="6 8"/></g>
+          <g class="leg b"><path d="M118 92 L158 46 L178 146" stroke="#2d2433" stroke-width="9"/><path d="M118 92 L158 46 L178 146" stroke="#c9ced6" stroke-width="5" stroke-dasharray="6 8"/></g>
+          <g class="leg b"><path d="M86 100 L58 66 L52 148" stroke="#2d2433" stroke-width="8"/><path d="M86 100 L58 66 L52 148" stroke="#ff5a4f" stroke-width="4" stroke-dasharray="5 8"/></g>
+          <g class="leg"><path d="M114 100 L142 66 L148 148" stroke="#2d2433" stroke-width="8"/><path d="M114 100 L142 66 L148 148" stroke="#ff5a4f" stroke-width="4" stroke-dasharray="5 8"/></g>
+        </g>
+        <circle cx="42" cy="46" r="6" fill="#ff5a4f" stroke="#2d2433" stroke-width="3"/><circle cx="158" cy="46" r="6" fill="#ff5a4f" stroke="#2d2433" stroke-width="3"/>
+        <ellipse cx="100" cy="98" rx="36" ry="22" fill="#8a8f98" stroke="#2d2433" stroke-width="4"/>
+        <rect x="84" y="94" width="32" height="12" rx="5" fill="#5d636d"/><circle cx="92" cy="100" r="3.5" fill="#55c8ff"/><circle cx="108" cy="100" r="3.5" fill="#55c8ff"/>
+        <rect x="88" y="52" width="24" height="26" rx="5" fill="#ff8f2c" stroke="#2d2433" stroke-width="3"/>
+        <rect x="88" y="28" width="24" height="22" rx="6" fill="#f5c9a0" stroke="#2d2433" stroke-width="3"/>
+        <rect x="86" y="22" width="28" height="10" rx="5" fill="#4a9cf0" stroke="#2d2433" stroke-width="3"/>
+        <rect x="94" y="37" width="3" height="5" fill="#2d2433"/><rect x="103" y="37" width="3" height="5" fill="#2d2433"/>
+      </svg>
+      <h1>+1 Spider Arms<span>Obby Escape</span></h1>
+      <div id="loadTrack"><div id="loadBar"></div></div>
+      <div id="loadText">Loading...</div>
+      <div id="loadTip"></div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      var tips = [
+        'Hold <b>Space</b> while walking into a wall to <b>climb</b>.',
+        'Press <b>Space</b> under a ceiling to <b>hang</b> and cross gaps.',
+        'Every level gives your machine <b>+1 arm</b>: more speed, grip and reach.',
+        'Watch your <b>grip bar</b>. Stand on the ground to recover.',
+        'Checkpoints refill your grip extra fast.',
+        'At an edge, keep pushing: your arms <b>reach across gaps</b>.',
+        'Spend <b>Wins</b> on better machines to train faster.'
+      ];
+      var el = document.getElementById('loadTip'), i = Math.floor(Math.random() * tips.length);
+      function show() { el.style.opacity = 0; setTimeout(function () { el.innerHTML = tips[i++ % tips.length]; el.style.opacity = 1; }, 250); }
+      show();
+      var timer = setInterval(function () {
+        if (document.getElementById('loading').classList.contains('done')) { clearInterval(timer); return; }
+        show();
+      }, 3200);
+    })();
+  </script>
+</body>
+</html>

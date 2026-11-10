@@ -1,0 +1,7 @@
+{
+  "leaderboards": [
+    { "id": "total_wins", "isMain": true },
+    { "id": "rebirths" },
+    { "id": "stages_cleared" }
+  ]
+}
